@@ -59,3 +59,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Soong Namespaces
 PRODUCT_SOONG_NAMESPACES += \
     packages/modules/Bluetooth/android/app
+    
+# EUICC
+PRODUCT_PACKAGES += \
+    EuiccSupportPixelOverlay
+    
