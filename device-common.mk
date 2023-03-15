@@ -67,3 +67,8 @@ PRODUCT_PACKAGES += \
 # ConnectivityThermalPowermanager
 include hardware/google/pixel/connectivity_thermal_power_manager/connectivity_thermal_power_manager.mk
 
+# Manifests
+DEVICE_MANIFEST_FILE += \
+    device/google/gs201/android.hardware.security.rkp-service.citadel.xml \
+    device/google/gs201/manifest_radio_ds.xml
+
