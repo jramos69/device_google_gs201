@@ -33,6 +33,10 @@ PRODUCT_COPY_FILES += \
 # Factory OTA
 -include vendor/unbundled_google/packages/FactoryOtaPrebuilt/factoryota.mk
 
+# EUICC
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml
+    
 # Set system properties identifying the chipset
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=Google
 PRODUCT_VENDOR_PROPERTIES += ro.soc.model=GS201
