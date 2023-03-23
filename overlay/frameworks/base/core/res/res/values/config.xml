@@ -289,4 +289,6 @@
         <item>"com.shannon.imsservice"</item>
         <item>"com.android.phone"</item>
     </string-array>
+    
+    <string name="config_qualified_networks_service_package">com.android.qns</string>
 </resources>

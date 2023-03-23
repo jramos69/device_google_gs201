@@ -63,9 +63,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # EUICC
 PRODUCT_PACKAGES += \
     EuiccSupportPixelOverlay
-    
-# ConnectivityThermalPowermanager
-include hardware/google/pixel/connectivity_thermal_power_manager/connectivity_thermal_power_manager.mk
 
 # Manifests
 DEVICE_MANIFEST_FILE += \
