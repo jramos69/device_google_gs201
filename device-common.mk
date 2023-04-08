@@ -51,3 +51,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # Set thermal warm reset
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.thermal_warmreset = true
+    
+# ConnectivityThermalPowermanager
+include hardware/google/pixel/connectivity_thermal_power_manager/connectivity_thermal_power_manager.mk
