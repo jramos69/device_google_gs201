@@ -85,7 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += log.tag.ShannonQNS-HC=DEBUG
 include device/google/gs201/modem/userdebug.mk
 endif
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 # b/36703476: Set default log size to 1M
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.logd.size=1M
@@ -291,7 +291,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/google/gs201/conf/init.gs201.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.gs201.rc
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_COPY_FILES += \
 	device/google/gs201/conf/init.debug.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.debug.rc
 endif
@@ -417,7 +417,7 @@ PRODUCT_COPY_FILES += \
 endif
 
 # default usb debug functions
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.usb.usbradio.config=dm
 endif
@@ -557,6 +557,7 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += BrownoutDetection
 endif
 
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES_DEBUG += \
 	sg_write_buffer \
 	f2fs_io \
@@ -564,6 +565,7 @@ PRODUCT_PACKAGES_DEBUG += \
 	f2fsstat \
 	f2fs.fibmap \
 	dump.f2fs
+endif
 
 # Storage health HAL
 PRODUCT_PACKAGES += \
@@ -586,8 +588,10 @@ ifeq (,$(filter true, $(BOARD_WITHOUT_DTLS)))
 include hardware/google/pixel/dauntless/dauntless.mk
 endif
 
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES_DEBUG += \
 	WvInstallKeybox
+endif
 
 # Copy Camera HFD Setfiles
 #PRODUCT_COPY_FILES += \
@@ -640,7 +644,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	debug.slsi_platform=1 \
 	debug.hwc.winupdate=1
 
-ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES += displaycolor_service
 endif
 
@@ -795,8 +799,10 @@ $(call inherit-product, system/core/trusty/trusty-storage.mk)
 $(call inherit-product, system/core/trusty/trusty-base.mk)
 
 # Trusty unit test tool
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES_DEBUG += trusty-ut-ctrl \
    tipc-test
+endif
 
 include device/google/gs101/confirmationui/confirmationui.mk
 
@@ -987,11 +993,13 @@ PRODUCT_COPY_FILES += \
 ARM_COMPUTE_CL_ENABLE := 1
 
 # Vibrator Diag
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 PRODUCT_PACKAGES_DEBUG += \
 	diag-vibrator \
 	diag-vibrator-cs40l25a \
 	diag-vibrator-drv2624 \
 	$(NULL)
+endif
 
 PRODUCT_PACKAGES += \
 	android.hardware.health-service.gs201 \
